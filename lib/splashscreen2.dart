@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
 
 import 'homepage.dart';
 
@@ -13,7 +12,7 @@ class splashtwo extends StatefulWidget {
 }
 
 class _splashtwoState extends State<splashtwo> {
-   @override
+  @override
   void initState() {
     super.initState();
     Timer(Duration(seconds: 3), () {
@@ -23,22 +22,20 @@ class _splashtwoState extends State<splashtwo> {
       );
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-       backgroundColor: Colors.white,
+      backgroundColor: Colors.white,
       body: Padding(
         padding: const EdgeInsets.only(right: 20),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Center(
-              child: Lottie.asset("assets/animation_lk5rhduk.json")
-            )
+            Center(child: Image.asset("assets/The Grand Marche Logo 2 (1).png"))
           ],
         ),
       ),
-
     );
   }
 }

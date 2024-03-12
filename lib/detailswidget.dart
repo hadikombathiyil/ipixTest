@@ -18,10 +18,10 @@ class detailwidget extends StatelessWidget {
             children: [
               Container(
                 decoration: BoxDecoration(boxShadow: [
-                  BoxShadow(
+                  const BoxShadow(
                     color: Colors.grey,
                     blurRadius: 2,
-                    offset: Offset(0, 1),
+                    offset: const Offset(0, 1),
                   ),
                 ], color: Colors.red, borderRadius: BorderRadius.circular(10)),
                 width: 45,
@@ -31,8 +31,8 @@ class detailwidget extends StatelessWidget {
                   children: [
                     Container(
                         child: Text(data.rating.toString(),
-                            style: TextStyle(color: Colors.white))),
-                    Icon(
+                            style: const TextStyle(color: Colors.white))),
+                    const Icon(
                       Icons.star,
                       size: 15,
                       color: Colors.white,
@@ -40,7 +40,7 @@ class detailwidget extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 width: 5,
               ),
               Text(

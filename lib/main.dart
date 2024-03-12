@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:google_map_test/homepage.dart';
+import 'package:google_map_test/restaurentMOdel.dart';
+
+import 'package:google_map_test/splashscreen.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
 
@@ -35,101 +37,6 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: hompage());
-  }
-}
-
-class Click extends StatelessWidget {
-  const Click({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: InkWell(
-          onTap: () => Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) => GoogleMapTest(),
-          )),
-          child: Container(
-            height: 50,
-            width: 100,
-            color: Colors.blue,
-            child: Center(
-              child: Text("Click"),
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
-// 11.248946, 75.833498
-
-class GoogleMapTest extends StatelessWidget {
-  GoogleMapTest({super.key});
-
-  Location location = Location();
-  LocationData? _locationData;
-
-  Future<LocationData> GetLoct() async {
-    _locationData = await location.getLocation();
-    return _locationData!;
-  }
-
-  Location lctn = Location();
-  CameraPosition init =
-      const CameraPosition(target: LatLng(11.248946, 75.833498), zoom: 15);
-
-  cls() async {
-    LocationData lctndata = await lctn.getLocation();
-    print(lctndata.longitude);
-    init = CameraPosition(
-        target: LatLng(lctndata.latitude!, lctndata.longitude!), zoom: 15);
-    print(init);
-    mapController!.animateCamera(CameraUpdate.newCameraPosition(init));
-  }
-
-  GoogleMapController? mapController;
-
-  @override
-  Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: FutureBuilder(
-            future: GetLoct(),
-            builder: (context, AsyncSnapshot<LocationData> snapshot) {
-              if (snapshot.hasError) {
-                return const Text('map');
-              } else if (snapshot.connectionState == ConnectionState.waiting) {
-                return const Center(
-                  child: CircularProgressIndicator(backgroundColor: Colors.red),
-                );
-              }
-              return Column(
-                children: [
-                  Expanded(
-                    child: GoogleMap(
-                      myLocationButtonEnabled: true,
-                      buildingsEnabled: true,
-                      myLocationEnabled: true,
-                      mapType: MapType.hybrid,
-                      mapToolbarEnabled: true,
-                      initialCameraPosition: CameraPosition(
-                          target: LatLng(snapshot.data!.latitude!,
-                              snapshot.data!.longitude!),
-                          zoom: 15),
-                      markers: {
-                        // Marker(
-                        //   markerId: const MarkerId('1'),
-                        //   position: LatLng(11.248946, 75.833498),
-                        // )
-                      },
-                    ),
-                  )
-                ],
-              );
-            }),
-      ),
-    );
+        home: const splashscreen());
   }
 }

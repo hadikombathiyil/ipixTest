@@ -24,10 +24,10 @@ class _detailspageState extends State<detailspage> {
           Container(
             width: double.infinity,
             height: 230,
-            child: Image.network(
-              widget.data.photograph.toString(),
-              fit: BoxFit.fill,
-            ),
+            // child: Image.network(
+            //   widget.data.photograph.toString(),
+            //   fit: BoxFit.fill,
+            // ),
           ),
           Padding(
             padding: const EdgeInsets.only(left: 15, top: 10, right: 15),
@@ -120,7 +120,8 @@ class _detailspageState extends State<detailspage> {
             padding: EdgeInsets.only(left: 15, right: 15, top: 15),
             child: Text(
               "Rating & Reviews",
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500,color: Colors.red),
+              style: TextStyle(
+                  fontSize: 16, fontWeight: FontWeight.w500, color: Colors.red),
             ),
           ),
           Expanded(
@@ -219,20 +220,10 @@ class GoogleMapTest extends StatelessWidget {
                       mapType: MapType.hybrid,
                       mapToolbarEnabled: true,
                       initialCameraPosition: CameraPosition(
-                          target: LatLng(snapshot.data!.latitude!,
-                              snapshot.data!.longitude!),
+                          target: LatLng(lat,
+                              long),
                           zoom: 15),
-                      polylines: {
-                        Polyline(
-                            points: [
-                              LatLng(lat, long),
-                              const LatLng(11.248946, 75.833498),
-                            ],
-                            polylineId: const PolylineId("value"),
-                            visible: true,
-                            width: 5,
-                            color: Colors.blue)
-                      },
+                   
                       markers: {
                         Marker(
                           markerId: const MarkerId('1'),

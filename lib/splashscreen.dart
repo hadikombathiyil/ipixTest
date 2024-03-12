@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_map_test/homepage.dart';
-import 'package:lottie/lottie.dart';
+
 import 'dart:async';
 
 import 'package:shared_preferences/shared_preferences.dart';
@@ -16,7 +16,7 @@ class splashscreen extends StatefulWidget {
 
 class _splashscreenState extends State<splashscreen> {
   @override
-   void initState() {
+  void initState() {
     super.initState();
     checkLoginStatus();
   }
@@ -35,7 +35,6 @@ class _splashscreenState extends State<splashscreen> {
     });
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,7 +45,7 @@ class _splashscreenState extends State<splashscreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Center(
-              child: Lottie.asset("assets/LsZ9bTcoK1.json"),
+              child: Image.asset("assets/The Grand Marche Logo 2 (1).png"),
             )
           ],
         ),
@@ -54,5 +53,3 @@ class _splashscreenState extends State<splashscreen> {
     );
   }
 }
-
-
